@@ -4,7 +4,7 @@ export class CreateProducts {
   @IsNotEmpty()
   id: number;
   @IsNotEmpty()
-  title: string;
+  designation: string;
 
   @IsNotEmpty()
   price: number;

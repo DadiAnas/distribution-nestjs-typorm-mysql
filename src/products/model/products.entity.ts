@@ -11,13 +11,13 @@ import {
 import { Categories } from 'src/categories/model/categories.entity';
 
 @Entity()
-@Unique(['title'])
+@Unique(['designation'])
 export class Products {
   @PrimaryGeneratedColumn({ name: 'productid' })
   id: number;
 
   @Column()
-  title: string;
+  designation: string;
 
   @Column()
   description: string;
@@ -25,7 +25,7 @@ export class Products {
   @Column({ type: 'float' })
   price: number;
 
-  @Column({ default: 'defaultpicutre.png' })
+  @Column({ default: 'defaultpicture.jpg' })
   picture: string;
 
   @CreateDateColumn()
