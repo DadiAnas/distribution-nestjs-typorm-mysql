@@ -25,6 +25,9 @@ export class Products {
   @Column({ type: 'float' })
   price: number;
 
+  @Column({ type: 'float' })
+  weight: number;
+
   @Column({ default: 'defaultpicture.jpg' })
   picture: string;
 
