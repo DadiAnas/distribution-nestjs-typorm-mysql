@@ -6,9 +6,10 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   ManyToOne,
-  JoinColumn,
+  OneToMany,
 } from 'typeorm';
 import { Categories } from 'src/categories/model/categories.entity';
+import { Packs_has_products } from 'src/packs-has-products/models/packs-has-products.entity';
 
 @Entity()
 @Unique(['designation'])
@@ -37,11 +38,18 @@ export class Products {
   @UpdateDateColumn()
   updatedAt: Date;
 
+  @OneToMany(
+    type => Packs_has_products,
+    packshasproducts => packshasproducts.products,
+  )
+  packsproducts: Packs_has_products[];
+
   @ManyToOne(
     type => Categories,
     categories => categories.products,
     {
       eager: true,
+      cascade: true,
     },
   )
   categories?: Categories;

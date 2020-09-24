@@ -10,6 +10,9 @@ import { ProductsService } from './products.service';
       categories: {
         eager: true,
       },
+      packs_has_products: {
+        eager: true,
+      },
     },
   },
 })
