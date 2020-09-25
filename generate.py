@@ -1,7 +1,8 @@
-from os import system, getcwd, mkdir, chdir
-from time import sleep
-#table_names = ["address", "address_types", "persons", "users", "user_types", "distributeurs", "distributeur_has_product"]
-table_names = ["countries"]
+from os import system, getcwd, mkdir
+
+
+# tables names
+tables_names = ["countries","address", "address_types", "persons", "users", "user_types", "distributeurs", "distributeur_has_product"]
 
 # get Current directory path
 cwd = getcwd()
@@ -80,12 +81,12 @@ export class """+capitalized_name+"""Controller {
 }"""
 
 
-for table_name in table_names:
+for table_name in tables_names:
     table_name_6 = table_name.replace('_', '-')
     # Generate service, contoller and module files
-    # system("nest g s "+table_name)
-    # system("nest g co "+table_name)
-    # system("nest g mo "+table_name)
+    system("nest g s "+table_name)
+    system("nest g co "+table_name)
+    system("nest g mo "+table_name)
     # create model folder
     mkdir(cwd+"\\src\\"+table_name_6+"\\model")
 
