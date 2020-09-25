@@ -1,4 +1,6 @@
-import { Packs_has_products } from 'src/packs-has-products/models/packs-has-products.entity';
+import { Packs_has_products } from 'src/packs-has-products/model/packs-has-products.entity';
+import { Packtypes } from 'src/packtypes/model/packtypes.entity';
+import { Palets_has_packs } from 'src/palets-has-packs/model/palets-has-packs.entity';
 import { Products } from 'src/products/model/products.entity';
 import {
   Entity,
@@ -7,9 +9,8 @@ import {
   Unique,
   CreateDateColumn,
   UpdateDateColumn,
-  ManyToMany,
-  JoinTable,
   OneToMany,
+   ManyToOne
 } from 'typeorm';
 
 @Entity()
@@ -45,6 +46,15 @@ export class Packs {
   )
   packsproducts: Packs_has_products[];
 
+  @OneToMany(
+    type => Palets_has_packs,
+    palethaspack => palethaspack.packs,
+  )
+  paletspacks: Palets_has_packs[];
+
+  @ManyToOne(type => Packtypes,
+    packtype => packtype.packs,{cascade:true,eager:true})
+  type: Packtypes
   // @ManyToMany(type => Products)
   // @JoinTable({
   //   name: 'packs_has_products', // table name for the junction table of this relation

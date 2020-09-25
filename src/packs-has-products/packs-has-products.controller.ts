@@ -1,6 +1,6 @@
 import { Controller } from '@nestjs/common';
 import { Crud } from '@nestjsx/crud';
-import { Packs_has_products } from './models/packs-has-products.entity';
+import { Packs_has_products } from './model/packs-has-products.entity';
 import { PacksHasProductsService } from './packs-has-products.service';
 
 @Crud({

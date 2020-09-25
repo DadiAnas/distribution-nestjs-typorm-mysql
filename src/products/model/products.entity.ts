@@ -9,7 +9,7 @@ import {
   OneToMany,
 } from 'typeorm';
 import { Categories } from 'src/categories/model/categories.entity';
-import { Packs_has_products } from 'src/packs-has-products/models/packs-has-products.entity';
+import { Packs_has_products } from 'src/packs-has-products/model/packs-has-products.entity';
 
 @Entity()
 @Unique(['designation'])

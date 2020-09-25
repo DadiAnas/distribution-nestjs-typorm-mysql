@@ -10,6 +10,12 @@ import { PacksService } from './packs.service';
       packs_has_products: {
         eager: true,
       },
+      palets_has_packs: {
+        eager: true,
+      },
+      packtypes: {
+        eager: true,
+      },
     },
   },
 })

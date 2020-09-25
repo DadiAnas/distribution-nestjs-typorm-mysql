@@ -5,8 +5,9 @@ import { PacksController } from './packs.controller';
 import { PacksService } from './packs.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Packs]), PacksModule],
+  imports: [TypeOrmModule.forFeature([Packs])],
   controllers: [PacksController],
   providers: [PacksService],
+  exports: [PacksService],
 })
 export class PacksModule {}
