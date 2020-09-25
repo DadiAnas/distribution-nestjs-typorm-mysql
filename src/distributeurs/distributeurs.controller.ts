@@ -5,6 +5,19 @@ import { Distributeurs } from './model/distributeurs.entity';
 
 @Crud({
   model: { type: Distributeurs },
+  query: {
+    join: {
+      Distributeur_has_product: {
+        eager: true,
+      },
+      pesons: {
+        eager: true,
+      },
+      users: {
+        eager: true,
+      },
+    },
+  },
 })
 @Controller('distributeurs')
 export class DistributeursController {

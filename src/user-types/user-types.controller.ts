@@ -5,6 +5,13 @@ import { User_types } from './model/user-types.entity';
 
 @Crud({
   model: { type: User_types },
+  query: {
+    join: {
+      users: {
+        eager: true,
+      },
+    },
+  },
 })
 @Controller('user_types')
 export class User_typesController {

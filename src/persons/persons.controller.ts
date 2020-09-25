@@ -5,6 +5,16 @@ import { Persons } from './model/persons.entity';
 
 @Crud({
   model: { type: Persons },
+  query: {
+    join: {
+      distributeurs: {
+        eager: true,
+      },
+      address: {
+        eager: true,
+      },
+    },
+  },
 })
 @Controller('persons')
 export class PersonsController {

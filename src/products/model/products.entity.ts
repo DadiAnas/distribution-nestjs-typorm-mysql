@@ -10,6 +10,7 @@ import {
 } from 'typeorm';
 import { Categories } from 'src/categories/model/categories.entity';
 import { Packs_has_products } from 'src/packs-has-products/model/packs-has-products.entity';
+import { Distributeur_has_product } from 'src/distributeur-has-product/model/distributeur-has-product.entity';
 
 @Entity()
 @Unique(['designation'])
@@ -43,6 +44,12 @@ export class Products {
     packshasproducts => packshasproducts.products,
   )
   packsproducts: Packs_has_products[];
+
+  @OneToMany(
+    type => Distributeur_has_product,
+    distproduct => distproduct.products,
+  )
+  distributeursproducts: Distributeur_has_product[];
 
   @ManyToOne(
     type => Categories,

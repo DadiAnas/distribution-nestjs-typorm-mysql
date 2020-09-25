@@ -5,6 +5,13 @@ import { Countries } from './model/countries.entity';
 
 @Crud({
   model: { type: Countries },
+  query: {
+    join: {
+      address: {
+        eager: true,
+      },
+    },
+  },
 })
 @Controller('countries')
 export class CountriesController {

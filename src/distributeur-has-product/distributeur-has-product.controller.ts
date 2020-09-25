@@ -5,6 +5,16 @@ import { Distributeur_has_product } from './model/distributeur-has-product.entit
 
 @Crud({
   model: { type: Distributeur_has_product },
+  query: {
+    join: {
+      products: {
+        eager: true,
+      },
+      distributeurs: {
+        eager: true,
+      },
+    },
+  },
 })
 @Controller('distributeur_has_product')
 export class Distributeur_has_productController {
