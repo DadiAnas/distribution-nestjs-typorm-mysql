@@ -15,7 +15,7 @@ import { Distributeur_has_product } from 'src/distributeur-has-product/model/dis
 @Entity()
 @Unique(['designation'])
 export class Products {
-  @PrimaryGeneratedColumn({ name: 'productid' })
+  @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
